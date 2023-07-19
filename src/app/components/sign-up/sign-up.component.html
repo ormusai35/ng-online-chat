@@ -1,11 +1,9 @@
-<div class="sign-in-container">
-    <form class="sign-in-form" (ngSubmit)="login()" #ngSignForm="ngForm">
-      <div id="sign-up-route">
-        <a routerLink="signup">
-        Sign Up
-        </a>
-      </div>
-      <h2>Sign In</h2>
+<div class="sign-up-container">
+    <form class="sign-up-form" (ngSubmit)="signUp()" #ngSignUpForm="ngForm">
+        <div id="sign-in-route">
+            <a routerLink="">Sign In</a>
+            </div>
+        <h2>Sign Up</h2>
       <div class="form-group">
         <input
           [ngClass]="{ 'inp-err' : userName.invalid && (userName.dirty || userName.touched) }"
@@ -19,7 +17,22 @@
         />
         <div>
           <span class="error" *ngIf="userName.invalid && (userName.dirty || userName.touched)">Username is required.</span>
-          <span class="error" *ngIf="error.length > 0">{{ error }}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          [ngClass]="{ 'inp-err' : email.invalid && (email.dirty || email.touched) }"
+          type="text"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          placeholder="email"
+          required
+          #email="ngModel"
+        />
+        <div>
+          <span class="error" *ngIf="email.invalid && (email.dirty || email.touched)">Email is required.</span>
         </div>
       </div>
   
@@ -39,6 +52,6 @@
         </div>
       </div>
   
-      <button type="submit" [disabled]="ngSignForm.invalid">Sign In</button>
+      <button type="submit" [disabled]="ngSignUpForm.invalid">Sign Up</button>
     </form>
   </div>

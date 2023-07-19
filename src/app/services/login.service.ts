@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../modals/User.interface';
@@ -7,15 +7,39 @@ import { User } from '../modals/User.interface';
   providedIn: 'root'
 })
 export class LoginService {
-  private apiUrl = 'https://localhost:9089'; // Replace this with your server API URL
 
+  currentUser:User = {
+    userName: "",
+    email: "",
+    password: ""
+  };
+  private apiUrl = 'http://localhost:9090'; // Replace this with your server API URL
 
   constructor(private http: HttpClient) { }
 
-  addUser(user: User) : Observable<User>{
-    const url = `${this.apiUrl}/addUser`;
+  initialCurrentUser() {
+    this.currentUser = {
+        userName: "",
+        email: "",
+        password: ""
+    }
+  }
+  login(userName:string, password:string) : Observable<User>{
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("userName",userName);
+    queryParams = queryParams.append("password",password);
+
+    const url = `${this.apiUrl}/login`;
+    return this.http.get<User>(url, {params: queryParams});
+  }
+  createUser(user: User) : Observable<User>{
+    const url = `${this.apiUrl}/create-user`;
     return this.http.post<User>(url, user);
   }
-
-
+  setUser(user: User) {
+    this.currentUser = user;
+  }
+  isConnect() :boolean {
+    return (this.currentUser.userName.length != 0)
+  }
 }

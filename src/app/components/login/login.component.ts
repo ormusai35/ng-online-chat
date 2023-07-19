@@ -8,24 +8,27 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user:User = {
-    username : "",
-    email: "or@musai.com",
+  user = {
+    userName : "",
     password: ""
   };
 
+  error: string = "";
+
   constructor(private loginService: LoginService) {}
 
-  onSubmit(){
-    this.loginService.addUser(this.user).subscribe(
-      (response) => {
-        console.log('User added successfully:', response);
-        // You can perform further actions, like showing a success message or redirecting to another page.
+  login(){
+    this.loginService.login(this.user.userName,this.user.password).subscribe({
+      next: (data) => {
+        this.loginService.setUser(data as User);
       },
-      (error) => {
-        console.error('Error adding user:', error);
-        // Handle error scenarios, like showing an error message.
+      error: (err) => {
+        if(err.error){
+          this.error = "Wrong password.";
+        } else {
+          this.error = "Username not exist.";
+        }
       }
-    );
+  });
   }
 }
