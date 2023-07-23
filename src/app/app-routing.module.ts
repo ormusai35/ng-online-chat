@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatAppComponent } from './components/chat-app/chat-app.component';
+import { ChatComponent } from './components/chat/chat.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MembersComponent } from './components/members/members.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent },
-  // { path: 'signin', component: LoginComponent },
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignUpComponent }
+  // { path: '', component: LoginComponent },
+  { path: '', component: ChatAppComponent },
+  { path: 'signup', component: SignUpComponent },
+  { path: 'chat', component: ChatComponent }
 ];
 
 @NgModule({

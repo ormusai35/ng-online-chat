@@ -1,0 +1,141 @@
+main{
+  background-color: #bbb;
+    width:100%;
+    height:100%;
+    display:inline-block;
+    font-size:15px;
+    vertical-align:top;
+  }
+  .status{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    display:inline-block;
+    margin-right:7px;
+  }
+  .green{
+    background-color:#58b666;
+  }
+  .orange{
+    background-color:#ff725d;
+  }
+  .blue{
+    background-color:#6fbced;
+    margin-right:0;
+    margin-left:7px;
+  }
+  
+  main header{
+    height:10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main header img:first-child{
+    border-radius:50%;
+  }
+  main header div{
+    margin-left:10px;
+    /* margin-right:145px; */
+  }
+  main header h2{
+    font-size:16px;
+    /* margin-bottom:5px; */
+  }
+  
+  #chat{
+    padding-left:0;
+    margin:0;
+    list-style-type:none;
+    overflow-y:scroll;
+    height:80%;
+    border-top:2px solid #fff;
+    border-bottom:2px solid #fff;
+  }
+  #chat li{
+    padding:10px 30px;
+
+  }
+  #chat h2,#chat h3{
+    display:inline-block;
+    font-size:13px;
+    font-weight:normal;
+  }
+  #chat h3{
+    margin-left: 5px;
+    color:black;
+  }
+  #chat .entete{
+    /* margin-bottom:5px; */
+  }
+  #chat .message{
+    padding:20px;
+    color:#fff;
+    line-height:25px;
+    max-width:90%;
+    display:inline-block;
+    text-align:left;
+    border-radius:5px;
+  }
+  #chat .me{
+    text-align:right;
+  }
+  #chat .you .message{
+    background-color:#58b666;
+  }
+  #chat .me .message{
+    background-color:#6fbced;
+  }
+  main footer{
+    display: flex;
+    height:10%;
+    width: 100%;
+    /* padding:0 10px 10px 10px; */
+  }
+  main footer textarea{
+    background-color: #6fbced;
+    color:#ddd;
+    resize:none;
+    border:none;
+    outline: none;
+    /* display:block; */
+    width:90%;
+    /* height:70px; */
+    border-radius:3px;
+    /* padding:10px; */
+    font-size:20px;
+    /* margin-bottom:13px; */
+    font-weight:bold;
+    
+  }
+  main footer textarea::placeholder{
+    color:black;
+    font-weight:bold;
+  }
+
+  main footer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6fbced;
+    height:100%;
+    width:10%;
+  }
+
+  main footer button{
+    text-transform:uppercase;
+    font-weight:bold;
+    color:black;
+    /* vertical-align:top; */
+    margin-left: 35px;
+    text-align: center;
+    /* width:70px;
+    height:70px; */
+    height:50%;
+    width:auto;
+    /* height: 100%; */
+    border-radius: 50%;
+    background-color:bisque;
+    cursor: pointer;
+  }

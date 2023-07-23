@@ -1,0 +1,17 @@
+<aside>
+    <header>
+      <input type="text" placeholder="search">
+    </header>
+    <ul>
+      <li *ngFor="let contact of contacts">
+        <img src="{{ contact.image }}" alt="">
+        <div>
+          <h2>{{ contact.name }}</h2>
+          <h3>
+            <span class="status orange"></span>
+            {{ contact.status }}
+          </h3>
+        </div>
+      </li>
+    </ul>
+  </aside>
