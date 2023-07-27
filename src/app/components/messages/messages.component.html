@@ -1,25 +1,17 @@
 <main>
     <header>
-      <img src="{{ activeContact.image }}" alt="">
+      <img src="{{ activeContact.imageUrl }}" alt="">
       <div>
         <h2>Chat with {{ activeContact.name }}</h2>
       </div>
     </header>
-    <ul id="chat">
-      <li *ngFor="let message of messages" class="{{ message.sender=='me' ? 'me' : 'you' }}" >
-        <div class="entete">
-          <span class="status green"></span>
-          <h2>{{ message.sender }}</h2>
-          <h3>10:12AM, Today</h3>
-        </div>
-        <div class="message">
-          {{ message.message }}
-        </div>
-      </li>
-    </ul>
+    <div class="chat">  
+      <app-message *ngFor="let message of messages" 
+      [message]="message"
+      ></app-message>
+    </div>
     <footer>
       <textarea placeholder="Type your message"></textarea>
-      <!-- <a href="#">Send</a> -->
       <div>
         <button id="send">Send</button>
       </div>

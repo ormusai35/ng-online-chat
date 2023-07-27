@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/modals/User.interface';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -15,12 +16,14 @@ export class LoginComponent {
 
   error: string = "";
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   login(){
     this.loginService.login(this.user.userName,this.user.password).subscribe({
       next: (data) => {
         this.loginService.setUser(data as User);
+        console.log(data);
+        this.router.navigate(['/chat']);  
       },
       error: (err) => {
         if(err.error){

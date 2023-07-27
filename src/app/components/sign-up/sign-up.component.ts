@@ -19,7 +19,10 @@ constructor(private loginService: LoginService) {}
   signUp(){
     this.loginService.createUser(this.user).subscribe({
         next: (data) => console.log(data),
-        error: (err) => console.log(this)
+        error: (err) => {
+          console.log(this);
+          console.log("error");
+        }
     });
   }
 }

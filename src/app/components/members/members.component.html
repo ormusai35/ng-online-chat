@@ -1,17 +1,13 @@
 <aside>
     <header>
-      <input type="text" placeholder="search">
+      <!-- <input [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="search"> -->
+      <app-contacts-filter (inputValueChanged)="onInputValueChange($event)"></app-contacts-filter>
     </header>
     <ul>
-      <li *ngFor="let contact of contacts">
-        <img src="{{ contact.image }}" alt="">
-        <div>
-          <h2>{{ contact.name }}</h2>
-          <h3>
-            <span class="status orange"></span>
-            {{ contact.status }}
-          </h3>
-        </div>
+      <li *ngFor="let contact of filteredContacts">
+        <app-contact
+           [contact]="contact"
+        ></app-contact>
       </li>
     </ul>
   </aside>

@@ -8,11 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ChatComponent } from './components/chat/chat.component';
 import { MembersComponent } from './components/members/members.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ChatAppComponent } from './components/chat-app/chat-app.component';
-import { AddContactComponent } from './components/add-contact/add-contact.component'; 
+import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ContactsFilterComponent } from './components/contacts-filter/contacts-filter.component';
+import { MessageComponent } from './components/message/message.component'; 
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
     LoginComponent,
     HomeComponent,
     SignUpComponent,
-    ChatComponent,
     MembersComponent,
     MessagesComponent,
     ChatAppComponent,
-    AddContactComponent
+    AddContactComponent,
+    ContactComponent,
+    ContactsFilterComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

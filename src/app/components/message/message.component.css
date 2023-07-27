@@ -1,0 +1,35 @@
+
+ .message {
+    padding:10px 30px;
+
+  }
+  h2, h3{
+    display:inline-block;
+    font-size:13px;
+    font-weight:normal;
+  }
+  h3{
+    margin-left: 5px;
+    color:black;
+  }
+  .entete{
+    /* margin-bottom:5px; */
+  }
+  .message-text{
+    padding:20px;
+    color:#fff;
+    line-height:25px;
+    max-width:90%;
+    display:inline-block;
+    text-align:left;
+    border-radius:5px;
+  }
+  .me{
+    text-align:right;
+  }
+  .you .message-text{
+    background-color:#58b666;
+  }
+  .me .message-text{
+    background-color:#6fbced;
+  }

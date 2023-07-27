@@ -13,7 +13,7 @@ export class LoginService {
     email: "",
     password: ""
   };
-  private apiUrl = 'http://localhost:9090'; // Replace this with your server API URL
+  private apiUrl = 'http://localhost:9090';
 
   constructor(private http: HttpClient) { }
 
