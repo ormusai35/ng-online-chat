@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contact } from '../modals/Contact.interface';
@@ -14,10 +14,12 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  addContact(contact:Contact){
-    console.log(contact);
+  addContact(contact:Contact, userId: number){
     const url = `${this.apiUrl}/add-contact`;
-    return this.http.post<Contact>(url, contact);
+
+    const params = new HttpParams().set('userId', userId);
+
+    return this.http.post<Contact>(url, contact, {params: params});
   }
 
   getContacts(): Observable<Contact[]> {

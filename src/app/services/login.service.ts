@@ -24,6 +24,9 @@ export class LoginService {
         password: ""
     }
   }
+  getCurrentUser() :User{
+    return this.currentUser;
+  }
   login(userName:string, password:string) : Observable<User>{
     let queryParams = new HttpParams();
     queryParams = queryParams.append("userName",userName);

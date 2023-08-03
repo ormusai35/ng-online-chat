@@ -1,5 +1,15 @@
-<div id="container">
-    <app-members class="app-mem"></app-members>
-    <app-messages class="messages"></app-messages>
+<div class="container">
+    <app-members class="app-mem" (activateContact)="onContactActivated($event)"></app-members>
+    <div class="app-center">
+        <app-header 
+            class="chat-header" 
+            [activatedContact]="activeContact" 
+         >
+        </app-header>
+        <app-messages 
+            [activatedContact]="activeContact"    
+            class="messages"
+        ></app-messages>
+    </div>
     <app-add-contact class="add-member"></app-add-contact>
 </div>

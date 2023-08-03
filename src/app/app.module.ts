@@ -14,7 +14,9 @@ import { ChatAppComponent } from './components/chat-app/chat-app.component';
 import { AddContactComponent } from './components/add-contact/add-contact.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ContactsFilterComponent } from './components/contacts-filter/contacts-filter.component';
-import { MessageComponent } from './components/message/message.component'; 
+import { MessageComponent } from './components/message/message.component';
+import { TextBoxComponent } from './components/text-box/text-box.component';
+import { HeaderComponent } from './components/header/header.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MessageComponent } from './components/message/message.component';
     AddContactComponent,
     ContactComponent,
     ContactsFilterComponent,
-    MessageComponent
+    MessageComponent,
+    TextBoxComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

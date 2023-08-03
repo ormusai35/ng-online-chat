@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Contact } from 'src/app/modals/Contact.interface';
 import { ContactService } from 'src/app/services/contact.service';
 
@@ -8,6 +8,8 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
+
+  @Output() activateContact: EventEmitter<Contact> = new EventEmitter<Contact>();
 
   contacts: Contact[] = [];
   filteredContacts: Contact[] = [];
@@ -31,5 +33,7 @@ constructor(private contactService: ContactService){ }
       }
     );
   }
-
+  onContactSelect(selectedContact: Contact) {
+    this.activateContact.emit(selectedContact);
+  }
 }

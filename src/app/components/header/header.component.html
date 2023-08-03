@@ -1,0 +1,6 @@
+<header>
+    <img src="{{ activatedContact.imageUrl }}" alt="">
+    <div *ngIf="activatedContact.name.length != 0">
+      <h2>Chat with {{ activatedContact.name }}</h2>
+    </div>
+</header>

@@ -1,19 +1,12 @@
 <main>
-    <header>
-      <img src="{{ activeContact.imageUrl }}" alt="">
-      <div>
-        <h2>Chat with {{ activeContact.name }}</h2>
-      </div>
-    </header>
     <div class="chat">  
       <app-message *ngFor="let message of messages" 
       [message]="message"
       ></app-message>
     </div>
     <footer>
-      <textarea placeholder="Type your message"></textarea>
-      <div>
-        <button id="send">Send</button>
-      </div>
+      <app-text-box
+        (messageSent)="handleMessage($event)"
+      ></app-text-box>
     </footer>
   </main>

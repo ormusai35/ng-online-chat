@@ -25,86 +25,17 @@ main{
     margin-left:7px;
   }
   
-  main header{
-    height:10%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main header img:first-child{
-    width: 5%;
-    border-radius:50%;
-    background-color: white;
-  }
-  main header div{
-    margin-left:10px;
-    /* margin-right:145px; */
-  }
-  main header h2{
-    font-size:16px;
-    /* margin-bottom:5px; */
-  }
-  
   .chat{
       padding-left:0;
       margin:0;
       list-style-type:none;
       overflow-y:scroll;
-      height:80%;
+      height:85%;
       border-top:2px solid #fff;
       border-bottom:2px solid #fff;
     }
 
   main footer{
-    display: flex;
-    height:10%;
+    height:15%;
     width: 100%;
-    /* padding:0 10px 10px 10px; */
-  }
-  main footer textarea{
-    background-color: #6fbced;
-    color:#ddd;
-    resize:none;
-    border:none;
-    outline: none;
-    /* display:block; */
-    width:90%;
-    /* height:70px; */
-    border-radius:3px;
-    /* padding:10px; */
-    font-size:20px;
-    /* margin-bottom:13px; */
-    font-weight:bold;
-    
-  }
-  main footer textarea::placeholder{
-    color:black;
-    font-weight:bold;
-  }
-
-  main footer div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #6fbced;
-    height:100%;
-    width:10%;
-  }
-
-  main footer button{
-    text-transform:uppercase;
-    font-weight:bold;
-    color:black;
-    /* vertical-align:top; */
-    margin-left: 35px;
-    text-align: center;
-    /* width:70px;
-    height:70px; */
-    height:50%;
-    width:auto;
-    /* height: 100%; */
-    border-radius: 50%;
-    background-color:bisque;
-    cursor: pointer;
   }

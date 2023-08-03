@@ -2,7 +2,7 @@ body{
   background-color:#abd9e9;
   font-family:Arial;
 }
-#container{
+.container{
   display: flex;
   width:100%;
   height:900px;
@@ -13,8 +13,16 @@ body{
 .app-mem {
     width: 15%;
 }
+.app-center {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.chat-header{
+  height: 10%;
+}
 .messages {
-    width: 70%;
+  height: 90%;
 }
 .add-member {
     width: 15%;

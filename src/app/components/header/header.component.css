@@ -1,0 +1,20 @@
+header{
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+header img:first-child{
+    width: 5%;
+    border-radius:50%;
+    background-color: white;
+  }
+header div{
+    margin-left:10px;
+    /* margin-right:145px; */
+  }
+header h2{
+    font-size:16px;
+    /* margin-bottom:5px; */
+  }

@@ -1,12 +1,12 @@
 <aside>
     <header>
-      <!-- <input [(ngModel)]="searchInput" name="searchInput" type="text" placeholder="search"> -->
       <app-contacts-filter (inputValueChanged)="onInputValueChange($event)"></app-contacts-filter>
     </header>
     <ul>
       <li *ngFor="let contact of filteredContacts">
         <app-contact
            [contact]="contact"
+           (click)="onContactSelect(contact)"
         ></app-contact>
       </li>
     </ul>

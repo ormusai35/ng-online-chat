@@ -1,0 +1,6 @@
+<form class="box-container" (ngSubmit)="onSendMessage()" #ngTextForm="ngForm">
+    <textarea placeholder="Type your message" name="textMessage" [(ngModel)]="textMessage" (keydown.enter)="onSendMessage()"></textarea>
+    <div class="send-btn">
+      <button type="submit" id="send">Send</button>
+    </div>
+</form>
