@@ -19,6 +19,9 @@ textarea{
     color:black;
     font-weight:bold;
   }
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
 
   .send-btn{
     display: flex;

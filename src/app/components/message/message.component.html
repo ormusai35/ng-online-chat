@@ -1,10 +1,9 @@
-<div class="message" class="me">
+<div class="message" class="{{ message.isMe ? 'me' : 'you' }}">
   <div class="entete">
     <span class="status green"></span>
-    <!-- <h2>{{ message.sender }}</h2> -->
-    <h3>10:12AM, Today</h3>
   </div>
-  <div class="message-text">
+  <div class="message-box">
     {{ message.content }}
+    <h3>{{ message.timestamp | customDate }}</h3>
   </div>
 </div>

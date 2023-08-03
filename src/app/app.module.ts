@@ -16,7 +16,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ContactsFilterComponent } from './components/contacts-filter/contacts-filter.component';
 import { MessageComponent } from './components/message/message.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
-import { HeaderComponent } from './components/header/header.component'; 
+import { HeaderComponent } from './components/header/header.component';
+import { CustomDatePipe } from './pipes/custom-date.pipe';
+import { OptionsComponent } from './components/options/options.component'; 
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { HeaderComponent } from './components/header/header.component';
     ContactsFilterComponent,
     MessageComponent,
     TextBoxComponent,
-    HeaderComponent
+    HeaderComponent,
+    CustomDatePipe,
+    OptionsComponent
   ],
   imports: [
     BrowserModule,

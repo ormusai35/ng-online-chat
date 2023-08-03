@@ -24,6 +24,15 @@ body{
 .messages {
   height: 90%;
 }
-.add-member {
-    width: 15%;
+.right-side {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  background-color: #3b3e49;
+}
+.add-contact {
+  height: 95%;
+}
+.opt {
+  height: 5%;
 }

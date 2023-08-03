@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Contact } from 'src/app/modals/Contact.interface';
 import { Message } from 'src/app/modals/Message.interface';
 import { LoginService } from 'src/app/services/login.service';
@@ -9,34 +10,35 @@ import { MessageService } from 'src/app/services/message.service';
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements OnInit, OnChanges{
+export class MessagesComponent implements OnChanges, AfterViewChecked{
 
   @Input()
   activatedContact!: Contact; 
 
-  // activeContact: Contact = {image:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/chat_avatar_01.jpg", name:"or musai", status:"online"};
+  @ViewChild('messageList')
+  messageList!: ElementRef;
 
   messages: Message[] = []; 
 
-  constructor(private messageService: MessageService, private userService: LoginService) {}
+  constructor(private messageService: MessageService, private userService: LoginService, private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("change!");
-    console.log(this.activatedContact);
+    console.log(this.activatedContact)
     this.messageService.getMessagesByUserAndContact(this.activatedContact).subscribe(
       data => {
         this.messages = data;
-        console.log(this.messages);
       }  
     );
   }
 
-  ngOnInit(): void {
+  handleMessage(msg: string) {
+    let message: Message = {content: msg, isMe: true, timestamp: new Date()};
+    this.messageService.sendMessage(this.activatedContact.id || 0, message).subscribe(
+      data => this.messages.push(data)
+    );
   }
 
-  handleMessage(msg: string) {
-    let message: Message = {content: msg};
-    this.messageService.sendMessage(this.activatedContact.id || 0, message).subscribe(
-    );
+  ngAfterViewChecked() {
+    this.messageList.nativeElement.scrollTop = this.messageList.nativeElement.scrollHeight;
   }
 }

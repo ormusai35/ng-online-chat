@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HTTP_URI } from '../constants/app.constants';
 import { User } from '../modals/User.interface';
 
 @Injectable({
@@ -13,7 +14,6 @@ export class LoginService {
     email: "",
     password: ""
   };
-  private apiUrl = 'http://localhost:9090';
 
   constructor(private http: HttpClient) { }
 
@@ -32,11 +32,11 @@ export class LoginService {
     queryParams = queryParams.append("userName",userName);
     queryParams = queryParams.append("password",password);
 
-    const url = `${this.apiUrl}/login`;
+    const url = `${HTTP_URI}/login`;
     return this.http.get<User>(url, {params: queryParams});
   }
   createUser(user: User) : Observable<User>{
-    const url = `${this.apiUrl}/create-user`;
+    const url = `${HTTP_URI}/create-user`;
     return this.http.post<User>(url, user);
   }
   setUser(user: User) {

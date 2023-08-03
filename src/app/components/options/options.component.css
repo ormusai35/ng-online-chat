@@ -1,0 +1,15 @@
+
+.op-container {
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  height: 100%;
+}
+#log-out {
+  color: white;
+}
+
+.op-container img {
+  cursor: pointer;
+  width: 15%;
+}

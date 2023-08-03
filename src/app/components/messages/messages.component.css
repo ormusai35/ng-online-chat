@@ -35,6 +35,10 @@ main{
       border-bottom:2px solid #fff;
     }
 
+    .chat::-webkit-scrollbar {
+      display: none;
+    }
+
   main footer{
     height:15%;
     width: 100%;

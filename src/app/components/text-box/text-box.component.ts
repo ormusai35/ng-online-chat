@@ -11,9 +11,9 @@ export class TextBoxComponent {
 
   @Output() messageSent: EventEmitter<string> = new EventEmitter<string>();
 
-  onSendMessage(){
-    console.log(this.textMessage);
+  onSendMessage(e: Event){
     this.messageSent.emit(this.textMessage);
     this.textMessage = "";
+    e.preventDefault();
   }
 }

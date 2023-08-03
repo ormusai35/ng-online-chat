@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/modals/User.interface';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -14,13 +16,15 @@ export class SignUpComponent {
     password: ""
   };
 
-constructor(private loginService: LoginService) {}
+constructor(private loginService: LoginService, private router: Router) {}
 
   signUp(){
     this.loginService.createUser(this.user).subscribe({
-        next: (data) => console.log(data),
+        next: (data) => {
+          this.loginService.setUser(data as User);
+          this.router.navigate(['chat']);
+        },
         error: (err) => {
-          console.log(this);
           console.log("error");
         }
     });

@@ -24,3 +24,7 @@ aside{
   aside li:hover{
     background-color:#5e616a;
   }
+
+aside ul::-webkit-scrollbar {
+    display: none;
+  }

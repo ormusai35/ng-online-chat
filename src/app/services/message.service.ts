@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HTTP_URI } from '../constants/app.constants';
 import { Contact } from '../modals/Contact.interface';
 import { Message } from '../modals/Message.interface';
 import { User } from '../modals/User.interface';
@@ -9,12 +10,11 @@ import { User } from '../modals/User.interface';
   providedIn: 'root'
 })
 export class MessageService {
-  private apiUrl = 'http://localhost:9090';
 
   constructor(private http: HttpClient) { }
 
   getMessagesByUserAndContact(activeContact: Contact) :Observable<Message[]>{
-    const url = `${this.apiUrl}/get-messages-user-contact`;
+    const url = `${HTTP_URI}/get-messages-user-contact`;
 
     let queryParams = new HttpParams();
     queryParams = queryParams.append("contactId",activeContact.id || 0);
@@ -23,7 +23,7 @@ export class MessageService {
   }
 
   sendMessage(contactId: number, message: Message): Observable<Message> {
-    const url = `${this.apiUrl}/send-message`;
+    const url = `${HTTP_URI}/send-message`;
 
     const params = new HttpParams().set('contactId', contactId);
 

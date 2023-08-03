@@ -1,0 +1,1 @@
+export const HTTP_URI = "http://localhost:9090";
