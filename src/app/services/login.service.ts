@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HTTP_URI } from '../constants/app.constants';
 import { User } from '../modals/User.interface';
 
@@ -9,13 +9,22 @@ import { User } from '../modals/User.interface';
 })
 export class LoginService {
 
+  private isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   currentUser:User = {
     userName: "",
     email: "",
     password: ""
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("Login Service Constructor!");
+
+    const stringUserId = sessionStorage.getItem("userId");
+    if(stringUserId != null){
+      this.isLoggedIn$.next(true);
+    }
+   }
 
   initialCurrentUser() {
     this.currentUser = {
@@ -23,9 +32,6 @@ export class LoginService {
         email: "",
         password: ""
     }
-  }
-  getCurrentUser() :User{
-    return this.currentUser;
   }
   login(userName:string, password:string) : Observable<User>{
     let queryParams = new HttpParams();
@@ -42,7 +48,7 @@ export class LoginService {
   setUser(user: User) {
     this.currentUser = user;
   }
-  isConnect() :boolean {
-    return (this.currentUser.userName.length != 0)
+  isLoggedIn() :Observable<boolean> {
+    return this.isLoggedIn$.asObservable();
   }
 }

@@ -28,11 +28,13 @@
           name="email"
           [(ngModel)]="user.email"
           placeholder="email"
-          required
           #email="ngModel"
+          required
+          email
         />
         <div>
-          <span class="error" *ngIf="email.invalid && (email.dirty || email.touched)">Email is required.</span>
+          <span class="error" *ngIf="(email.dirty || email.touched) && email.invalid && email.value.length === 0">Email is required.</span>
+          <span class="error" *ngIf="(email.dirty || email.touched) && email.invalid && email.value.length > 0">Invalid email.</span>
         </div>
       </div>
   
@@ -48,7 +50,8 @@
           #password="ngModel"
         />
         <div>
-          <span class="error" *ngIf="password.invalid && (password.dirty || password.touched)">Password is required.</span>
+          <span class="error" *ngIf="(password.dirty || password.touched) && password.invalid">Password is required.</span>
+          <span class="error" *ngIf="(password.dirty || password.touched) && password.valid && password.value.length < 8">Password required at least 8 characters.</span>
         </div>
       </div>
   

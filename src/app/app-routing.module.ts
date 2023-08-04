@@ -6,12 +6,13 @@ import { LoginComponent } from './components/login/login.component';
 import { MembersComponent } from './components/members/members.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { IsAuthGaurd } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'chat', component: ChatAppComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'chat', component: ChatAppComponent, canActivate: [IsAuthGaurd]}
 ];
 
 @NgModule({

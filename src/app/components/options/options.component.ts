@@ -13,6 +13,7 @@ export class OptionsComponent {
 
   logOut(){
     this.loginService.initialCurrentUser();
+    sessionStorage.clear();
     this.router.navigate(['login']);
   }
 }

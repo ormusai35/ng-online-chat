@@ -22,6 +22,8 @@ export class LoginComponent {
     this.loginService.login(this.user.userName,this.user.password).subscribe({
       next: (data) => {
         this.loginService.setUser(data as User);
+        sessionStorage.setItem('userId',(data.id || 0).toString());
+        console.log("55")
         this.router.navigate(['/chat']);  
       },
       error: (err) => {
