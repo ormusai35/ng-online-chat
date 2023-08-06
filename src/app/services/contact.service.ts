@@ -20,8 +20,8 @@ export class ContactService {
     return this.http.post<Contact>(url, contact, {params: params});
   }
 
-  getContacts(): Observable<Contact[]> {
-    const url = `${HTTP_URI}/get-all-contacts`;
+  getContacts(userId:number): Observable<Contact[]> {
+    const url = `${HTTP_URI}/get-contacts/${userId}`;
     return this.http.get<Contact[]>(url);
   }
 }

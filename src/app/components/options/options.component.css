@@ -1,8 +1,8 @@
 
 .op-container {
   display: flex;
-  /* justify-content: end; */
-  align-items: flex-end;
+  justify-content: flex-end;
+  /* align-items: flex-end; */
   height: 100%;
 }
 #log-out {

@@ -24,7 +24,6 @@ export class MessageService {
 
   sendMessage(contactId: number, message: Message): Observable<Message> {
     const url = `${HTTP_URI}/send-message`;
-
     const params = new HttpParams().set('contactId', contactId);
 
     // let queryParams = new HttpParams();

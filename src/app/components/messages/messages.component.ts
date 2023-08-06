@@ -40,6 +40,7 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
 
   handleMessage(msg: string) {
     let message: Message = {content: msg, isMe: true, timestamp: new Date()};
+    console.log(message)
     this.subscription.add(
     this.messageService.sendMessage(this.activatedContact.id || 0, message).subscribe(
       data => this.messages.push(data)

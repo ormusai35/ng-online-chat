@@ -6,6 +6,7 @@
     </div>
     <footer>
       <app-text-box
+        *ngIf="activatedContact.id"
         (messageSent)="handleMessage($event)"
       ></app-text-box>
     </footer>

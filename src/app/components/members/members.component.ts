@@ -21,7 +21,7 @@ constructor(private contactService: ContactService){ }
 
   ngOnInit(): void {
     this.subscription.add(
-    this.contactService.getContacts().subscribe(
+    this.contactService.getContacts(Number(sessionStorage.getItem("userId"))).subscribe(
       data => {
         this.filteredContacts = this.contacts = data;
       }
