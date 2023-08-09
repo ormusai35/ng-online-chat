@@ -15,11 +15,6 @@ export class AddContactComponent {
 
   private subscription: Subscription = new Subscription();
 
-  // contact: Contact = {
-  //   name: "",
-  //   status: "offline"
-  // };
-
   contactGroup = new FormGroup({
     name: new FormControl("",[Validators.required]),
     imageUrl: new FormControl("",[Validators.required, Validators.pattern('https?://.+')]),

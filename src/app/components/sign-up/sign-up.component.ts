@@ -15,6 +15,7 @@ export class SignUpComponent implements OnDestroy{
   private subscription: Subscription = new Subscription();
   
   user:User = {
+    id:0,
     userName : "",
     email: "",
     password: ""

@@ -11,14 +11,15 @@ export class LoginService {
 
   private isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  currentUser:User = {
-    userName: "",
-    email: "",
-    password: ""
-  };
+  private currentUser:User;
 
   constructor(private http: HttpClient) {
-    console.log("Login Service Constructor!");
+    this.currentUser = {
+      id:0,
+      userName: "",
+      email: "",
+      password: ""
+  }
 
     const stringUserId = sessionStorage.getItem("userId");
     if(stringUserId != null){
@@ -26,8 +27,9 @@ export class LoginService {
     }
    }
 
-  initialCurrentUser() {
+  initialCurrentUser() :void {
     this.currentUser = {
+        id:0,
         userName: "",
         email: "",
         password: ""

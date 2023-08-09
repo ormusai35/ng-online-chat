@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ChatAppComponent {
   activeContact: Contact = {
+    id:0,
     name: "",
     status: ''
   };

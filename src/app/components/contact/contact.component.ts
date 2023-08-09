@@ -8,6 +8,7 @@ import { Contact } from 'src/app/modals/Contact.interface';
 })
 export class ContactComponent {
   @Input() contact: Contact = {
+    id:0,
     name: '',
     status: ''
   };

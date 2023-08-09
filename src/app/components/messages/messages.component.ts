@@ -24,6 +24,7 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
 
   constructor(private messageService: MessageService, private userService: LoginService, private router: Router) {
     this.activatedContact = {
+      id:0,
       name: "",
       status: ""
     };
@@ -39,10 +40,10 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
   }
 
   handleMessage(msg: string) {
-    let message: Message = {content: msg, isMe: true, timestamp: new Date()};
+    let message: Message = {id:0, content: msg, isMe: true, timestamp: new Date()};
     console.log(message)
     this.subscription.add(
-    this.messageService.sendMessage(this.activatedContact.id || 0, message).subscribe(
+    this.messageService.sendMessage(this.activatedContact.id, message).subscribe(
       data => this.messages.push(data)
     ));
   }
