@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Chat } from 'src/app/modals/Chat.interface';
 import { Contact } from 'src/app/modals/Contact.interface';
 import { ContactService } from 'src/app/services/contact.service';
 

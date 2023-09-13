@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Chat } from 'src/app/modals/Chat.interface';
 import { Contact } from 'src/app/modals/Contact.interface';
 import { Message } from 'src/app/modals/Message.interface';
 import { LoginService } from 'src/app/services/login.service';
@@ -15,7 +16,7 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
 
   private subscription: Subscription = new Subscription();
 
-  @Input() activatedContact: Contact; 
+  @Input() activatedChat: Chat; 
 
   @ViewChild('messageList')
   messageList!: ElementRef;
@@ -23,16 +24,18 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
   messages: Message[] = []; 
 
   constructor(private messageService: MessageService, private userService: LoginService, private router: Router) {
-    this.activatedContact = {
+    this.activatedChat = {
       id:0,
       name: "",
+      imageUrl:"",
+      creator:0,
       status: ""
     };
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.subscription.add(
-    this.messageService.getMessagesByUserAndContact(this.activatedContact).subscribe(
+    this.messageService.getMessagesByUserAndContact(this.activatedChat).subscribe(
       data => {
         this.messages = data;
       }  
@@ -43,7 +46,7 @@ export class MessagesComponent implements OnChanges, AfterViewChecked, OnDestroy
     let message: Message = {id:0, content: msg, isMe: true, timestamp: new Date()};
     console.log(message)
     this.subscription.add(
-    this.messageService.sendMessage(this.activatedContact.id, message).subscribe(
+    this.messageService.sendMessage(this.activatedChat.id, message).subscribe(
       data => this.messages.push(data)
     ));
   }

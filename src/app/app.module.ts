@@ -17,7 +17,11 @@ import { MessageComponent } from './components/message/message.component';
 import { TextBoxComponent } from './components/text-box/text-box.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CustomDatePipe } from './pipes/custom-date.pipe';
-import { OptionsComponent } from './components/options/options.component'; 
+import { OptionsComponent } from './components/options/options.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ChatsComponent } from './components/chats/chats.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatsFilterComponent } from './components/chats-filter/chats-filter.component'; 
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { OptionsComponent } from './components/options/options.component';
     TextBoxComponent,
     HeaderComponent,
     CustomDatePipe,
-    OptionsComponent
+    OptionsComponent,
+    ContactsComponent,
+    ChatsComponent,
+    ChatComponent,
+    ChatsFilterComponent
   ],
   imports: [
     BrowserModule,

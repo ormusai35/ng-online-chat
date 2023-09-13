@@ -9,6 +9,6 @@ import { Contact } from 'src/app/modals/Contact.interface';
 export class HeaderComponent {
 
   @Input()
-  activatedContact!: Contact;
+  activatedChat!: Contact;
 
 }

@@ -1,0 +1,13 @@
+<aside>
+    <header>
+      <app-chats-filter (inputValueChanged)="onInputValueChange($event)"></app-chats-filter>
+    </header>
+    <ul>
+      <li *ngFor="let chat of filteredChats">
+        <app-chat
+           [chat]="chat"
+           (click)="onChatSelect(chat)"
+        ></app-chat>
+      </li>
+    </ul>
+  </aside>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Chat } from 'src/app/modals/Chat.interface';
 import { Contact } from 'src/app/modals/Contact.interface';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -9,13 +10,15 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./chat-app.component.css']
 })
 export class ChatAppComponent {
-  activeContact: Contact = {
+  activeChat: Chat = {
     id:0,
     name: "",
+    creator:0,
+    imageUrl:'',
     status: ''
   };
   
-  onContactActivated(contact: Contact) {
-    this.activeContact = contact;
+  onChatActivated(chat: Chat) {
+    this.activeChat = chat;
   }
 }
